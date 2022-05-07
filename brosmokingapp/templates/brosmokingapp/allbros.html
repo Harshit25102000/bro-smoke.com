@@ -1,0 +1,38 @@
+ {% extends 'brosmokingapp/basic.html' %}
+
+{% block title %} All Bros {% endblock %}
+
+{% block body %}
+{% load static %}
+ <div class="heading-title-listing">
+
+        <h2>All Bros</h2>
+        <form action="/brosmokingapp/searchresult" method="GET" class="bro-search" >
+            <input type="text" placeholder="Search for your Bro..." name="query">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+
+    </div>
+
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Cig/Week</th>
+          <th>Avg Cig/Day</th>
+          <th>Weekly Expenditure</th>
+
+        </tr>
+        {% for bro in bros %}
+        <tr>
+          <td>{{bro.user}}</td>
+          <td>{{bro.cigweek}}</td>
+          <td>{{bro.cigday}}</td>
+          <td>{{bro.expweek}}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+
+
+
+      {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'brosmokingapp/basic.html' %}
+
+{% block title %} History {% endblock %}
+
+{% block body %}
+{% load static %}
+
+ <!-- Heading -->
+     <div class="heading-title-listing">
+
+        <h2>History of</h2>
+        <h2>all Cigarette Purchases</h2>
+
+
+    </div>
+
+    <table class="singlebro">
+
+
+        <tr>
+
+          <th>Date</th>
+          <th>Time</th>
+          <th>Cigarette</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+
+          <td>{{entry.date}}</td>
+          <td>{{entry.time}}</td>
+          <td>{{entry.cig}}</td>
+          <td>{{entry.qty}}</td>
+          <td>{{entry.cost}}</td>
+        </tr>
+      {% endfor %}
+      </table>
+
+     <a href="{% url 'myaccount' %}" > <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 6%;">
+
+        <button class="btn btn-primary"   type="button" style="background-color:#6e7391;">Click to go back</button>
+     </div></a>
+
+{% endblock %}

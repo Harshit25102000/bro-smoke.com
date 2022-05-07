@@ -1,0 +1,63 @@
+{% extends 'brosmokingapp/basic.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+{% load static %}
+
+
+
+    <!-- Heading -->
+    <div class="heading-title">
+        <h1>Bro-Smoke</h1>
+        <br>
+        <h2>Because Bros smokes together</h2>
+        <img class="heading-title-image" src='{% static "Home/logo.png" %}'>
+    </div>
+
+    <div class="make-entry">
+        <h3>Make Entry</h3>
+    </div>
+    <div class="form-div">
+        <form action='/brosmokingapp/make_entry' method="POST">
+        {% csrf_token %}
+            <label for="name">Cigarette Name </label>
+            <select name="name" id="name" required>
+                 <option value="Other">Other</option>
+                <option value="Advance">Advance</option>
+                <option value="Red">Red</option>
+                <option value="Purple Burst">Purple Burst</option>
+                <option value="Double Mint">Double Mint</option>
+                <option value="Choti Gold">Choti Gold</option>
+                <option value="Badi Gold">Badi Gold</option>
+                <option value="Goldflake Lite">Goldflake Lite</option>
+                <option value="Esselite">Esselite</option>
+
+            </select>
+
+            <label for="quantity">Quantity *</label>
+            <input type="number" id="quantity" name="quantity" placeholder="1" min="1" required>
+
+            <label for="price">Total Price *</label>
+            <input type="number" id="price" name="price" placeholder="18" min="1" required>
+
+            <br>
+
+
+
+            <label for="date">Date </label>
+            <input type="date" id="date" name="date" onfocus="(this.type='date')">
+
+
+            <label for="time">Time </label>
+            <input type="time" id="time" name="time">
+
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+{% endblock %}

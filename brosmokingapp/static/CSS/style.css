@@ -1,0 +1,416 @@
+body{
+font-family: 'Merriweather', serif;}
+
+.heading-title{
+    background-color:#d3d5de;
+    height:300px;
+    text-align:center;
+}
+.heading-title-image{
+    width:6%;
+}
+
+.heading-title h1 {
+    margin:auto;
+    font-weight: 700;
+    font-size: 500%;
+    vertical-align:middle;
+    line-height:124px;
+}
+.heading-title h2{
+    margin:auto;
+    vertical-align:middle;
+    font-weight:900;
+
+}
+
+.make-entry{
+    text-align: center;
+    margin: 4% auto;
+}
+
+.make-entry h3{
+    font-size: 300%;
+    font-weight: 700;
+    margin-bottom: 4%;
+}
+
+.make-entry form{
+    width: 100%;
+}
+
+.form-div{
+    border-radius: 5px;
+    background-color: #f0f1f4;
+    padding: 20px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color:#999db2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+
+
+
+  input[type=time], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=submit]:hover {
+    background-color:#585c74;
+  }
+
+
+
+  .footer-dark {
+    padding:50px 0;
+    color:#f0f9ff;
+    background-color:#282d32;
+  }
+
+  .footer-dark h3 {
+    margin-top:0;
+    margin-bottom:12px;
+    font-weight:bold;
+    font-size:16px;
+  }
+
+  .footer-dark ul {
+    padding:0;
+    list-style:none;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+  }
+
+  .footer-dark ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.6;
+  }
+
+  .footer-dark ul a:hover {
+    opacity:0.8;
+  }
+
+  @media (max-width:767px) {
+    .footer-dark .item:not(.social) {
+      text-align:center;
+      padding-bottom:20px;
+    }
+  }
+
+  .footer-dark .item.text {
+    margin-bottom:36px;
+  }
+
+  @media (max-width:767px) {
+    .footer-dark .item.text {
+      margin-bottom:0;
+    }
+  }
+
+  .footer-dark .item.text p {
+    opacity:0.6;
+    margin-bottom:0;
+  }
+
+  .footer-dark .item.social {
+    text-align:center;
+  }
+
+  @media (max-width:991px) {
+    .footer-dark .item.social {
+      text-align:center;
+      margin-top:20px;
+    }
+  }
+
+  .footer-dark .item.social > a {
+    font-size:20px;
+    width:36px;
+    height:36px;
+    line-height:36px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+    margin:0 8px;
+    color:#fff;
+    opacity:0.75;
+  }
+
+  .footer-dark .item.social > a:hover {
+    opacity:0.9;
+  }
+
+  .footer-dark .copyright {
+    text-align:center;
+    padding-top:24px;
+    opacity:0.3;
+    font-size:13px;
+    margin-bottom:0;
+  }
+
+
+
+
+
+
+
+  /* CSS for listing page  */
+
+  .bro-search input[type=text]{
+    width: 50%;
+    background-color:white;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+
+  table {
+      margin-bottom:2%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  td:hover{
+      cursor: pointer;
+  }
+
+  tr:nth-child(even) {
+    background-color: #d3d5de;
+  }
+
+  .heading-title-listing{
+    background-color: #d3d5de;
+    height: 220px;
+    text-align: center;
+    padding-top: 2%;
+}
+
+  /* CSS for single bro page  */
+
+  .singlebro{
+      margin-bottom: 5%;
+  }
+
+    /* CSS for about  */
+
+    .about-para{
+      margin: 8% 8% 8% 8%;
+    }
+
+    .about-para p{
+      font-size: 130%;
+    }
+
+    .heading-title-about{
+      background-color: #d3d5de;
+      height: 140px;
+      text-align: center;
+      padding-top: 2%;
+  }
+
+  .days-count p{
+    text-align-last: center;
+    margin-bottom:2%;
+  }
+
+  .heading-title-about h2{
+    margin-top: 2%;
+  }
+
+  .checked {
+    color: orange;
+  }
+
+  .performer{
+    text-align: right;
+  }
+
+  .account-summary{
+  margin-top: 4%;
+    margin-bottom: 2%;
+    text-align-last: center;
+  }
+
+  .table-heading{
+    margin-bottom: 2%;
+    margin-left: 1%;
+  }
+
+/* The alert message box */
+.alert-message {
+  padding: 20px;
+  background-color: black; /* Red */
+  color: white;
+  margin-bottom: 0px;
+}
+
+/* The close button */
+.closebtn-message {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn-message:hover {
+  color: black;
+}
+
+/* password reset pages */
+
+.forgotpassword-page{
+
+
+    padding: 100px 0;
+    background: radial-gradient(#f2f2f2, #e6e6e6);
+
+}
+
+
+.forgotpassword-page h3{
+
+
+  text-align-last: center;
+
+
+}
+.forgotpassword-submit{
+
+    cursor: pointer;
+    background-color:black;
+    color:white;
+}
+
+.forgotpassword-submit:hover{
+
+
+    background-color:white;
+    color:black;
+}
+
+.forgotpassword-page form{
+width: 21%;
+    margin: 20px 39%;
+    }
+
+@media (max-width: 600px) {
+  .forgotpassword-page form{
+    margin: 37px 18%;
+    width: 63%;
+  }
+  .forgotpassword-page h3{
+  font-size:14px;
+}
+
+}
+
+.password-reset-sent{
+text-align-last: center;
+
+    margin: 10% 23%;
+}
+
+.password-reset-complete h3{
+text-align-last: center;
+font-size:30px;
+margin: 8% 2% 4%;
+}
+
+.password-reset-complete a{
+background-color: #cccccc;;
+    margin: 2% 43%;
+    color:black;
+    font-size: 25px;
+    display: inline-block;
+    margin-bottom: 6%;
+    width: 14%;
+    text-align-last: center;
+    border-radius: 6%;
+}
+.password-reset-complete a:hover{
+    color:black;
+    background-color:white;
+}
+
+.password-reset-confirm form{
+width: 21%;
+    margin: 20px 39%;
+}
+
+.helptext{
+display: none;
+}
+
+.password-reset-confirm{
+    margin: 9% 2%;
+    text-align-last: center;
+}
+
+@media (max-width: 600px) {
+    .password-reset-confirm form{
+        margin: 20px 32%;
+    width: 36%;
+}
+}

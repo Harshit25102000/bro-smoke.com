@@ -1,0 +1,82 @@
+{% extends 'brosmokingapp/basic.html' %}
+
+{% block title %} My Account {% endblock %}
+
+{% block body %}
+{% load static %}
+ <!-- Heading -->
+     <div class="heading-title-listing">
+
+        <h2>Welcome !</h2>
+        <h2>{{ user }} Bro</h2>
+        <h4>You made First entry on {{ min }}</h4>
+        <h4>You made Last entry on {{ max }}</h4>
+
+
+    </div>
+
+    <div class = "account-summary">
+        <h6>Total Days Passed : {{ days}}</h6>
+        <h6>Total Cigarettes Till Now : {{ cig }}</h6>
+        <h6>Total Expenditure Till Now : Rs. {{ cost }}</h6>
+    </div>
+
+    <div class="table-heading">
+        <h5>At your current performance , your stats are like this :</h5>
+    </div>
+    <table class="singlebro">
+
+
+        <tr>
+
+          <th>Cigarettes Per Day</th>
+          <td>{{ queryset.cigday }}</td>
+          <th>Cigarettes Per Week</th>
+          <td>{{ queryset.cigweek }}</td>
+        </tr>
+        <tr>
+
+          <th>Cigarettes Per Month</th>
+          <td>{{ queryset.cigmonth }} </td>
+          <th>Cigarettes Per Year</th>
+          <td>{{ queryset.cigyear }}</td>
+        </tr>
+        <tr>
+
+          <th>Daily expenditure</th>
+          <td>Rs. {{ queryset.expday }}</td>
+          <th>Weekly expenditure</th>
+          <td>Rs. {{ queryset.expweek }}</td>
+        </tr>
+        <tr>
+
+          <th>Monthly expenditure</th>
+          <td>Rs. {{ queryset.expmonth }}</td>
+          <th>Yearly expenditure</th>
+          <td>Rs. {{ queryset.expyear }}</td>
+        </tr>
+      </table>
+
+    <div class="days-count">
+        <p>We take 28 days in one month to keep the numbers big and scary !<p>
+    </div>
+     <a href="{% url 'history' %}" > <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 2%;">
+
+        <button class="btn btn-primary"   type="button" style="background-color:#6e7391;">Click to view History</button>
+     </div></a>
+
+     <a href="{% url 'change_password' %}" >
+      <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 2%;">
+
+        <button class="btn btn-primary"   type="button"
+      style="background-color: #6e7391;">Change Password</button>
+      </div></a>
+
+<a href="{% url 'handleLogout' %}" >
+      <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 6%;">
+
+        <button class="btn btn-primary"   type="button"
+      style="background-color: #6e7391;">Logout</button>
+      </div></a>
+
+      {% endblock %}

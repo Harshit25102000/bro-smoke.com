@@ -17,6 +17,12 @@ font-family: 'Merriweather', serif;}
     vertical-align:middle;
     line-height:124px;
 }
+
+@media (max-width: 800px) {
+    .heading-title h1{
+        font-size:400%;
+    }
+}
 .heading-title h2{
     margin:auto;
     vertical-align:middle;
@@ -413,4 +419,42 @@ display: none;
         margin: 20px 32%;
     width: 36%;
 }
+}
+
+@media (max-width: 800px) {
+.heading-title-listing h2{
+    font-size:170%;
+}
+
+.heading-title-listing h4{
+    font-size:100%;
+}
+.table-heading {
+    margin-top: 9%;
+    margin-bottom: 8%;
+
+}
+.warning{
+
+    margin-bottom: 8%;
+}
+.warning h3{
+    font-size:65%;
+}
+}
+
+.warning{
+    margin-bottom:3%;
+}
+
+.no-entry{
+    margin-top:3%;
+    margin-botton:2%;
+
+}
+
+.no-entry h2{
+    text-align-last:center;
+    margin-top:3%;
+    margin-bottom: 2%;
 }

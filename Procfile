@@ -1,1 +1,1 @@
-web: gunicorn brosmokingapp.wsgi --log-file -
+web: gunicorn brosmoking.wsgi --log-file - --log-level debug

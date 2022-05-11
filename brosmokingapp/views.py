@@ -16,7 +16,11 @@ import math
 def myaccount(request):
 
     if request.user.is_authenticated:
-        queryset = Profile.objects.get(user=request.user)
+        try:
+            queryset = Profile.objects.get(user=request.user)
+
+        except:
+            return render(request,'brosmokingapp/noentry.html')
 
         aggregate = data.objects.filter(user=request.user).aggregate(Min('date'), Max('date'), Sum('qty'), Sum('cost'))
         min_date = aggregate.get('date__min')
@@ -29,12 +33,40 @@ def myaccount(request):
             total_cost = aggregate.get('cost__sum')
             days = (curr_date - min_date).days + 1
 
+            weeks = days / 7
+            months = weeks / 4
+            years = months / 12
 
-        context = {'queryset': queryset,'cig': total_cig, 'min': min_date, 'max': max_date, 'days': days, 'cost': total_cost}
+            context = {'cigday': math.ceil(total_cig / days), 'cigmonth': math.ceil(total_cig / months),
+                       'cigweek': math.ceil(total_cig / weeks),
+                       'cigyear': math.ceil(total_cig / years), 'expday': math.ceil(total_cost / days),
+                       'expmonth': math.ceil(total_cost / months),
+                       'expyear': math.ceil(total_cost / years), 'expweek': math.ceil(total_cost / weeks),
+                       'first_date': min_date,
+                       'last_date': max_date,
+                       'total_cig': total_cig, 'days': days, 'cost': total_cost}
 
 
 
-        return render(request,'brosmokingapp/myaccount.html',context)
+
+            Profile.objects.filter(user=request.user).update(
+                cigday=context['cigday'],
+                cigweek=context['cigweek'],
+                cigmonth=context['cigmonth'],
+                cigyear=context['cigyear'],
+                expday=context['expday'],
+                expweek=context['expweek'],
+                expmonth=context['expmonth'],
+                expyear=context['expyear'],      )
+
+
+
+
+            context = {'queryset': queryset,'cig': total_cig, 'min': min_date, 'max': max_date, 'days': days, 'cost': total_cost}
+
+
+
+            return render(request,'brosmokingapp/myaccount.html',context)
     else:
         messages.error(request, 'Please login to continue')
         return render(request,'brosmokingapp/login.html')
@@ -84,11 +116,11 @@ def make_entry(request):
             months = weeks / 4
             years = months / 12
             print(days, weeks, months, years)
-            context = {'cigday': math.floor(total_cig / days), 'cigmonth': math.floor(total_cig / months),
-                       'cigweek': math.floor(total_cig / weeks),
-                       'cigyear': math.floor(total_cig / years), 'expday': math.floor(total_cost / days),
-                       'expmonth': math.floor(total_cost / months),
-                       'expyear': math.floor(total_cost / years), 'expweek': math.floor(total_cost / weeks),
+            context = {'cigday': math.ceil(total_cig / days), 'cigmonth': math.ceil(total_cig / months),
+                       'cigweek': math.ceil(total_cig / weeks),
+                       'cigyear': math.ceil(total_cig / years), 'expday': math.ceil(total_cost / days),
+                       'expmonth': math.ceil(total_cost / months),
+                       'expyear': math.ceil(total_cost / years), 'expweek': math.ceil(total_cost / weeks),
                        'first_date': min_date,
                        'last_date': max_date,
                        'total_cig': total_cig, 'days': days, 'cost': total_cost}
@@ -96,7 +128,7 @@ def make_entry(request):
 
             check = Profile.objects.filter(user=request.user).first()
             if check is not None:
-                Profile.objects.update(
+                Profile.objects.filter(user=request.user).update(
                                                  cigday=context['cigday'],
                                                  cigweek=context['cigweek'],
                                                  cigmonth=context['cigmonth'],
@@ -136,7 +168,11 @@ def searchresult(request):
         query = request.GET.get('query', "")
         bros=User.objects.filter(username__icontains=query)
         for bro in bros:
-            profiles=Profile.objects.get(user=bro)
+            try:
+                profiles=Profile.objects.get(user=bro)
+
+            except:
+                continue
             ls.append(profiles)
         data=zip(bros,ls)
         context = {'bros': bros,'query': query,'ls':ls,'data':data}
@@ -159,6 +195,7 @@ def handle_signup(request):
 
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
+        email="none"
         print(username, pass1, pass2)
         # check for errorneous input
         if len(username) < 5:
@@ -180,7 +217,7 @@ def handle_signup(request):
             return redirect('signup')
 
         # Create the user
-        myuser = User.objects.create_user(username, pass1)
+        myuser = User.objects.create_user(username,email, pass1)
 
         myuser.save()
         messages.success(request, " Your account has been successfully created")
@@ -223,7 +260,8 @@ def handlecontactus(request):
                 surname='blank'
 
             contactus.objects.create(firstname=name, email=email, lastname=surname,message=message,user=request.user)
-        return HttpResponse('Done')
+        messages.success(request, " Message Sent")
+        return redirect('contact')
 
     else:
 

@@ -1,0 +1,35 @@
+{% extends 'brosmokingapp/basic.html' %}
+
+{% block title %} My Account {% endblock %}
+
+{% block body %}
+{% load static %}
+ <!-- Heading -->
+     <div class="heading-title-listing">
+
+        <h2>Welcome !</h2>
+        <h2>{{ user }} Bro</h2>
+
+
+
+    </div>
+
+    <div class="no-entry">
+        <h2>Make an entry first to use My account page</h2>
+    </div>
+
+     <a href="{% url 'change_password' %}" >
+      <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 2%;">
+
+        <button class="btn btn-primary"   type="button"
+      style="background-color: #6e7391;">Change Password</button>
+      </div></a>
+
+<a href="{% url 'handleLogout' %}" >
+      <div class="d-grid gap-2 col-3 mx-auto" style="margin-bottom: 6%;">
+
+        <button class="btn btn-primary"   type="button"
+      style="background-color: #6e7391;">Logout</button>
+      </div></a>
+
+      {% endblock %}
